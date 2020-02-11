@@ -1,10 +1,9 @@
-let env;
-if (process.env.NODE_ENV) {
-    if (prosess.env.NODE_ENV.toUpperCase() === 'RILEASE')
-        env = 'Release';
-    else
-        env = 'Debug';
-} else env = 'Release';
+function findModule() {
+  try {
+    return require('./build/Release/addon.node');
+  } catch (err) {
+    return require('./build/Debug/addon.node');
+  }
+}
 
-module.exports = require(`./build/${env}/addon`);
-
+module.exports = findModule();
