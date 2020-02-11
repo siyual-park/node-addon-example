@@ -6,7 +6,7 @@ if (process.env.NODE_ENV) {
         env = 'Debug';
 } else env = 'Release';
 
-module.exports = require(`./build/${env}/hello`);
+module.exports = require(`./build/${env}/addon`);
 
 
 
